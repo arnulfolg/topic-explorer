@@ -3,8 +3,6 @@ import { setContext } from '@apollo/client/link/context';
 
 const URI = 'https://api.github.com/graphql';
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
-console.log(process.env)
-
 
 const httpLink = createHttpLink({
     uri: URI,
