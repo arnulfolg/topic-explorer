@@ -27,11 +27,29 @@ Best of luck
 
 ## Dev Notes
 
-* Leave any technical notes on any libraries or tools you chose to use, the more detail the better.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+This project is using [Tailwind CSS](https://tailwindcss.com/) for the styles.
+
+To use the demo app, you have to setup a GitHub Token in the REACT_APP_GITHUB_TOKEN variable in the .env file (in the root fo the project). To create a GitHub Token, you can visit [this link](https://github.com/settings/tokens)
+
+
 
 ### How to run app & test
 
-* Leave instruction on how to run and test your app here
+
+To install dependencies
+
+```sh
+npm install
+```
+
+To run the demo app in development mode
+
+```sh
+npm run start
+```
+
 
 
 ### Future Improvements
@@ -44,74 +62,15 @@ Feel free to elaborate on how you would improve any of the following topics
 
 * Additional Features:
 
+- To impove usability, I would like to add a form to enter the GITHUB TOKEN directly in the app. But that would mean the app should have been structued a bit differently. This would allow any people to add its token in a production environment. Another way to solve this, would be to add authentication with GitHub and use an Auth Token instead.
 
-# Getting Started with Create React App
+- I would like to add animations when the items are being removed and added back.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Another good feature would be to add a stack of visited routes / visited queries, so users would be able to go back to their previuos search. Currently the URL loads the current search, but that isn't been used for anything right now. In future versions this would be a good way to go back.
 
-## Available Scripts
+- Also a message when the query returned nothing would be good as well, but this could be missleading, as the API returns no results when you search for a repo with no stars and no related topics as well as when the repo doesn's exist.
 
-In the project directory, you can run:
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Author
+* [Arnulfo Loredo](https://www.linkedin.com/in/arnulfolg/)  
