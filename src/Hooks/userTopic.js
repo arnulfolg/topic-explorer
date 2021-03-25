@@ -4,7 +4,7 @@ export const GET_RELATED_TOPICS = gql`
     query GetRelatedTopics($topic: String!) {
         topic(name: $topic) {
 			stargazerCount
-            relatedTopics(first: 10) {
+            relatedTopics(first: 9) {
                 id
                 name
                 stargazerCount
