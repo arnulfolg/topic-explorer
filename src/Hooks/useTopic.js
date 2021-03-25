@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 
-export const GET_RELATED_TOPICS = gql`
+export const GQL_QUERY = gql`
     query GetRelatedTopics($topic: String!) {
         topic(name: $topic) {
 			stargazerCount
@@ -14,9 +14,7 @@ export const GET_RELATED_TOPICS = gql`
 `;
 
 export const useTopic = topic => {
-    const { loading, error, data } = useQuery(GET_RELATED_TOPICS, {
-        variables: { topic }
-    });
+    const { loading, error, data } = useQuery(GQL_QUERY, {variables: { topic }});
 
 	const topics  = data ? data.topic.relatedTopics : []
 	const topicStars = data ? data.topic.stargazerCount : 0

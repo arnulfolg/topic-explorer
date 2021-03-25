@@ -14,8 +14,10 @@ function App() {
 
   function clickHandler(topicName, e) {
     e?.preventDefault()
-    setTopic(topicName)
-    setSearch(topicName)
+    if (topicName) {
+      setTopic(topicName)
+      setSearch(topicName)
+    }
   }
 
   function handleChange(e) {
