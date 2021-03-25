@@ -1,27 +1,61 @@
+import {useState} from 'react'
 // import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react'
 
 import Topic from './components/Topic/Topic'
 import Header from './components/Header/Header'
+import TopicTitle from './components/TopicTitle/TopicTitle'
+import FormTopic from './components/Form/Form'
+import  { useTopic }  from './Hooks/userTopic'
 
 function App() {
-  const [topics, ] = useState([1,2,3,4,5,6,7,8,9,0])
+  const [search, setSearch] = useState("react")
+  const [topic, setTopic] = useState("react")
+    const [ ,, topics, topicStars ] = useTopic(topic);
 
-  function clickHandler() {
-    console.log("click")
+  function clickHandler(topicName, e) {
+    e?.preventDefault()
+    setTopic(topicName)
+    setSearch(topicName)
+  }
+
+  function handleChange(e) {
+     e.preventDefault();
+    setSearch(e.target.value)
   }
 
   return (
     <section>
         <Header></Header>
-        <main className="container mx-auto px-8 grid sm:grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto mt-8">
-          <p className="col-span-full self-end font-bold text-center text-2x1 h-12">Topic: React</p>
-          {topics.map((topic, index) => {
-            return <Topic topic={index} key={index} onClick={clickHandler}></Topic>
-          })
+        <main className="container mx-auto px-8 ">
+          <section 
+            className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 auto-rows-auto mt-8">
+            <TopicTitle 
+              topicTitle={topic} 
+              topicStars={topicStars}
+            />
 
-          }
+            <FormTopic
+              topicValue={search}
+              topicHandle={handleChange}
+              subtmitForm={clickHandler}
+            />
+          </section>
+          
+          <section className="grid sm:grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto mt-8">
+            {topics.map(topic => {
+                return (
+                  <Topic 
+                    topic={topic.name} 
+                    key={topic.id} 
+                    stars={topic.stargazerCount} 
+                    clickAction={clickHandler}
+                    />
+                  )
+              })
+              }
+          </section>
+         
           
         </main>
     </section>

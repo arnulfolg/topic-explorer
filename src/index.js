@@ -3,10 +3,35 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink  } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
+const URI = 'https://api.github.com/graphql';
+const TOKEN = "09bfc34441eac522c522d59fdcb913ccc1ac01d7";
+
+
+const httpLink = createHttpLink({
+    uri: URI,
+});
+
+const authLink = setContext((_, { headers }) => ({
+    headers: {
+        ...headers,
+        authorization: TOKEN ? `Bearer ${TOKEN}` : '',
+    }
+}));
+
+const client = new ApolloClient({
+    cache: new InMemoryCache(),
+    link: authLink.concat(httpLink),
+});
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
