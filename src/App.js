@@ -1,12 +1,11 @@
 import {useState} from 'react'
-// import logo from './logo.svg';
 import './App.css';
 
 import Topic from './components/Topic/Topic'
 import Header from './components/Header/Header'
 import TopicTitle from './components/TopicTitle/TopicTitle'
 import FormTopic from './components/Form/Form'
-import  { useTopic }  from './Hooks/userTopic'
+import  { useTopic }  from './Hooks/useTopic'
 
 function App() {
   const [search, setSearch] = useState("react")

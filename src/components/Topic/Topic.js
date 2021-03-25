@@ -8,18 +8,18 @@ if(stars < 100 ) {
 } else if(stars<10000){
   cardColor = "yellow"
 } else {
-  cardColor = "blue"
+  cardColor = "green"
 }
 
   return (
-    <section 
-      tabIndex="1"
+    <a 
+      href={`#` + topic}
       className={`Topic rounded-md p-8 shadow-lg transition-colors cursor-pointer focus:outline-none focus:ring focus:border-${cardColor}-300 bg-${cardColor}-100  hover:bg-${cardColor}-500` 
         }
       onClick={() => clickAction(topic)}>
 		<Stargazer stars={stars}></Stargazer>
 		<p className="text-center text-xl">{topic}</p>
-    </section>
+    </a>
   );
 }
 

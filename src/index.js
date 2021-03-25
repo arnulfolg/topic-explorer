@@ -3,38 +3,31 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink  } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-
-const URI = 'https://api.github.com/graphql';
-const TOKEN = "09bfc34441eac522c522d59fdcb913ccc1ac01d7";
+import { ApolloProvider  } from '@apollo/client';
+import { CLIENT, TOKEN } from './apollo'
+import ErrorPage from './components/ErrorPage/ErrorPage'
 
 
-const httpLink = createHttpLink({
-    uri: URI,
-});
-
-const authLink = setContext((_, { headers }) => ({
-    headers: {
-        ...headers,
-        authorization: TOKEN ? `Bearer ${TOKEN}` : '',
-    }
-}));
-
-const client = new ApolloClient({
-    cache: new InMemoryCache(),
-    link: authLink.concat(httpLink),
-});
-
-
+if(TOKEN === undefined) {
+  ReactDOM.render(
+  <React.StrictMode>
+      <ErrorPage />
+  </React.StrictMode>
+  ,
+document.getElementById('root')
+  )
+} else {
 ReactDOM.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
+    <ApolloProvider client={CLIENT}>
       <App />
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
+}
+
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

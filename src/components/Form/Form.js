@@ -1,7 +1,7 @@
 
 function FormTopic({topicValue, topicHandle, subtmitForm}) {
   return (
-	<form className="flex flex-row flex-nowrap self-center" onSubmit={(e)=>subtmitForm(topicValue, e )}>
+	<form className="flex flex-row flex-nowrap space-x-2 self-center" onSubmit={(e)=>subtmitForm(topicValue, e )}>
 		<input 
 			className="flex-grow flex-shrink flex-1 px-4 py-3 rounded-md focus:ring focus:border-gray-300" 
 			type="text" 
